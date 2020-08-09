@@ -1,0 +1,223 @@
+{
+  "auth.memberships": {
+    "schemaName": "auth",
+    "tableName": "memberships",
+    "tablePath": "auth.memberships",
+    "className": "Membership",
+    "collectionName": "memberships",
+    "name": "Membership",
+    "columns": {
+      "id": {
+        "name": "id",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": "nextval('auth.memberships_id_seq'::regclass)"
+      },
+      "organizationId": {
+        "name": "organizationId",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": null
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "type": "timestamp with time zone",
+        "nullable": false,
+        "defaultValue": "now()"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "type": "timestamp with time zone",
+        "nullable": false,
+        "defaultValue": "now()"
+      },
+      "disabledAt": {
+        "name": "disabledAt",
+        "type": "timestamp with time zone",
+        "nullable": true,
+        "defaultValue": null
+      },
+      "userId": {
+        "name": "userId",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": null
+      },
+      "roleId": {
+        "name": "roleId",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": null
+      }
+    },
+    "uniqueColumns": [],
+    "relations": {
+      "organizationId": "auth.organizations",
+      "roleId": "auth.roles",
+      "userId": "auth.users"
+    },
+    "queryModifiers": [
+      "since"
+    ],
+    "pluralForeignKeyMap": {}
+  },
+  "auth.organizations": {
+    "schemaName": "auth",
+    "tableName": "organizations",
+    "tablePath": "auth.organizations",
+    "className": "Organization",
+    "collectionName": "organizations",
+    "name": "Organization",
+    "columns": {
+      "id": {
+        "name": "id",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": "nextval('auth.organizations_id_seq'::regclass)"
+      },
+      "name": {
+        "name": "name",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": null
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "type": "timestamp with time zone",
+        "nullable": false,
+        "defaultValue": "now()"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "type": "timestamp with time zone",
+        "nullable": false,
+        "defaultValue": "now()"
+      }
+    },
+    "uniqueColumns": [],
+    "relations": {},
+    "queryModifiers": [
+      "since"
+    ],
+    "pluralForeignKeyMap": {}
+  },
+  "auth.roles": {
+    "schemaName": "auth",
+    "tableName": "roles",
+    "tablePath": "auth.roles",
+    "className": "Role",
+    "collectionName": "roles",
+    "name": "Role",
+    "columns": {
+      "id": {
+        "name": "id",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": null
+      }
+    },
+    "uniqueColumns": [],
+    "relations": {},
+    "queryModifiers": [],
+    "pluralForeignKeyMap": {}
+  },
+  "auth.users": {
+    "schemaName": "auth",
+    "tableName": "users",
+    "tablePath": "auth.users",
+    "className": "User",
+    "collectionName": "users",
+    "name": "User",
+    "columns": {
+      "id": {
+        "name": "id",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": "nextval('auth.users_id_seq'::regclass)"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "type": "timestamp with time zone",
+        "nullable": false,
+        "defaultValue": "now()"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "type": "timestamp with time zone",
+        "nullable": false,
+        "defaultValue": "now()"
+      },
+      "email": {
+        "name": "email",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": "''::text"
+      },
+      "givenName": {
+        "name": "givenName",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": "''::text"
+      },
+      "familyName": {
+        "name": "familyName",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": "''::text"
+      }
+    },
+    "uniqueColumns": [],
+    "relations": {},
+    "queryModifiers": [
+      "since"
+    ],
+    "pluralForeignKeyMap": {}
+  },
+  "posts.posts": {
+    "schemaName": "posts",
+    "tableName": "posts",
+    "tablePath": "posts.posts",
+    "className": "Post",
+    "collectionName": "posts",
+    "name": "Post",
+    "columns": {
+      "id": {
+        "name": "id",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": "nextval('posts.posts_id_seq'::regclass)"
+      },
+      "organizationId": {
+        "name": "organizationId",
+        "type": "bigint",
+        "nullable": false,
+        "defaultValue": null
+      },
+      "authorId": {
+        "name": "authorId",
+        "type": "bigint",
+        "nullable": true,
+        "defaultValue": null
+      },
+      "title": {
+        "name": "title",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": null
+      },
+      "body": {
+        "name": "body",
+        "type": "text",
+        "nullable": false,
+        "defaultValue": null
+      }
+    },
+    "uniqueColumns": [],
+    "relations": {
+      "organizationId": "auth.organizations",
+      "authorId": "auth.users"
+    },
+    "queryModifiers": [],
+    "pluralForeignKeyMap": {}
+  }
+}
